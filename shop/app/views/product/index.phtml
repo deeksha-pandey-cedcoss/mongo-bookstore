@@ -1,0 +1,32 @@
+<?php
+
+if ($_SESSION['role'] != 'admin') {
+    
+    echo "<h3>Not Allowed !</h3>";
+    die;
+}
+
+?>
+<a href="/product/add/" class="btn btn-info m-3">Add Products!</a>
+<a href="/product/index/" class="btn btn-info m-3">Display Products!</a>
+<a href="/login/index/" class="btn btn-info m-3">Login!</a>
+<a href="/shop/myorders" class="btn btn-info m-3">Display Orders!</a>
+<a  aria-current="page" class="btn btn-info m-3" href="/shop/">Home</a></li>
+
+
+<?php
+echo "<div class='row m-2'>";
+foreach ($data as $value) {
+    echo "<div class='card p-2 m-2 bg-secondary text-white' style='width: 18rem;'>
+    <img class='card-img-top' src=$value->img alt='Card image cap' height='220px'>
+<div class='card-body'>
+  <h5 class='card-title'>Name : $value->name</h5>
+  <h6 class='card-subtitle mb-2 '>Type :  $value->type</h6>
+  <h4 > Price : $value->price</h4>
+  <a href='/product/edit/?id=$value->id' class='card-link'>Edit</a>
+  <a href='/product/delete/?id=$value->id' class='card-link'>Delete</a>
+</div>
+</div>";
+}
+echo "</div>";
+?>

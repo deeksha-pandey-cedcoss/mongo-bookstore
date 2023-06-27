@@ -1,0 +1,42 @@
+<?php
+session_start();
+if ($_SESSION['role'] != 'admin') {
+
+    echo "<h3>Not Allowed !</h3>";
+    die;
+}
+
+?>
+<a href="/product/add/" class="btn btn-info m-3">Add Products!</a>
+<a href="/product/index/" class="btn btn-info m-3">Display Products!</a>
+<a href="/login/index/" class="btn btn-info m-3">Login!</a>
+<a href="/place/new/" class="btn btn-info m-3">Place Order!</a>
+<a href="/place/display" class="btn btn-info m-3">Display Orders!</a>
+<table class="table">
+    <caption>table</caption>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">order ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Product ID</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($data as  $value) {
+            $id = $value['id']['$oid'];
+            echo "<tr>
+                    <td scope='row'>$id</td>
+                    <td>$value[name]</td>
+                    <td>$value[address]</td>
+                    <td>$value[product_id]</td>
+                    <td>$value[quantity]</td>
+                    <td>$value[status]</td>
+                    </tr>";
+        }
+        ?>
+    </tbody>
+</table>

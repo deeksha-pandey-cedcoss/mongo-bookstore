@@ -1,0 +1,98 @@
+<hr>
+<h1 class="text-center">All books</h1>
+
+<table class="table text-center" id='details'>
+    <caption>Details</caption>
+    <thead class="text-center   ">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>TYPE</th>
+            <th>PRICE</th>
+            <th>ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($data as $value) {
+
+            echo "<tr><td>" . $value->id . "</td>";
+            echo "<td>" . $value->name . "</td>";
+            echo "<td>" . $value->type . "</td>";
+            echo "<td>" . $value->price . "</td>";
+            echo "<td><a href='/admin/editrestraunt?id=$value->rid' class='btn btn-info'>Edit</a>
+                <a href='/admin/deleterestraunt?id=$value->rid' class='btn btn-danger'>Delete</a></td></tr>";
+        }
+        ?>
+    </tbody>
+</table>
+
+<hr>
+<h1 class="text-center">All books</h1>
+<?php
+echo "<div class='row m-5'>";
+foreach ($data as $value) {
+    echo "<div class='card p-2 m-2 bg-secondary text-white' style='width: 18rem;'>
+    <img class='card-img-top' src=$value->img alt='Card image cap' height='220px'>
+<div class='card-body'>
+  <h5 class='card-title'>Name : $value->name</h5>
+  <h6 class='card-subtitle mb-2 '>Type :  $value->type</h6>
+  <h4 > Price : $value->price</h4>
+  <a href='/product/edit/?id=$value->id' class='card-link'>Edit</a>
+  <a href='/product/delete/?id=$value->id' class='card-link'>Delete</a>
+</div>
+</div>";
+}
+echo "</div>";
+?>
+<hr>
+<h1 class="text-center">All Users</h1>
+
+<table class="table text-center" id='details'>
+    <caption>Details</caption>
+    <thead class="text-center   ">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>ROLE</th>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($user as $value) {
+
+            echo "<tr><td>" . $value->_id . "</td>";
+            echo "<td>" . $value->name . "</td>";
+            echo "<td>" . $value->email . "</td>";
+            echo "<td>" . $value->role . "</td>";
+        }
+        ?>
+    </tbody>
+</table>
+
+<hr>
+<h1 class="text-center">All Transactions</h1>
+
+<table class="table text-center" id='details'>
+    <caption>Details</caption>
+    <thead class="text-center   ">
+        <tr>
+            <th>ID</th>
+            <th>PRODUCT-ID</th>
+            <th>USER-ID</th>
+            <th>NAME</th>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($order as $value) {
+
+            echo "<tr><td>" . $value->_id . "</td>";
+            echo "<td>" . $value->pid . "</td>";
+            echo "<td>" . $value->uid . "</td>";
+            echo "<td>" . $value->name . "</td>";
+        }
+        ?>
+    </tbody>
+</table>
+
+<hr>

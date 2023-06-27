@@ -1,0 +1,21 @@
+<h1 class="text-center"><u>CART-VIEW</u></h1>
+<?php
+
+
+echo "<div class='row m-2'>";
+foreach ($data as $value) {
+    echo "<div class='card p-2 m-2 bg-secondary text-white' style='width: 18rem;'>
+    <img class='card-img-top' src=$value->img alt='Card image cap' height='220px'>
+    <div class='card-body'>
+    <h5 class='card-title'>Name : $value->name</h5>
+    <h6 class='card-subtitle mb-2 '>Type :  $value->type</h6>
+    <h4 > Price : $value->price</h4>
+    <a href='/shop/puschase/?id=$value->pid' class='card-link btn btn-info'>Buy Now!</a>
+    <a href='/shop/delete/?id=$value->pid' class='card-link btn btn-info'>Delete</a>
+    
+    </div>
+    </div>";
+}
+echo "</div>";
+?>
+<h1 class="text-center"><a href='/shop/' class='card-link btn btn-info'>Go-Back</a></h1>
